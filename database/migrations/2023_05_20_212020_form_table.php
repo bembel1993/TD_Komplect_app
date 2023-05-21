@@ -17,6 +17,7 @@ class FormTable extends Migration
             $table->id();
             $table->string('lastname');
             $table->string('firstname');
+            $table->string('patronymic');
             $table->unsignedBigInteger('id_department');
             $table->foreign('id_department')->references('id')->on('departments');
             $table->timestamps();

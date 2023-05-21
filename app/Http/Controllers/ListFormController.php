@@ -10,6 +10,7 @@ class ListFormController extends Controller
     public function index() 
     {
         $forms = Form::all();
-        return view('index', ['forms' => $forms]);
+        $departs = Department::all();
+        return view('index', ['forms' => $forms], ['departs' => $departs]);
     }
 }
