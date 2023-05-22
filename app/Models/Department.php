@@ -9,8 +9,8 @@ class Department extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'company',
-        'department',
-    ];
+    public function forms()
+    {
+        return $this->hasMany(Form::class, 'id_department');
+    }
 }

@@ -9,10 +9,8 @@ class Form extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'lastname',
-        'firstname',
-        'phatername',
-        'id_department',
-    ];
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'id_department');
+    }
 }
