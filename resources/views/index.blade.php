@@ -10,61 +10,40 @@
     </head>
 <body>
 
-  <table>
-    <thead>
-        <tr>
-            <th>Company</th>
-            <th>Department</th>
-            <th>Lastname</th>
-            <th>Firstname</th>
-            <th>Patronymic</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($departments as $department)
-            <tr>
-                <td rowspan="{{ count($department->forms) }}">{{ $department->company }}</td>
-                <td rowspan="{{ count($department->forms) }}">{{ $department->department }}</td>
-                @foreach ($department->forms as $form)
-                    <td>{{ $form->lastname }}</td>
-                    <td>{{ $form->firstname }}</td>
-                    <td>{{ $form->patronymic }}</td>
-                    </tr><tr>
-                @endforeach
-            </tr>
-        @endforeach
-    </tbody>
-</table>
 
-  <p class="nameOfArticle"><a href= "{{ route('form.perform') }}">Регистрация</a></p>
-  @foreach ($departments as $department)
-  @foreach ($department->forms as $form)
+
+  <p class="nameOfArticle"><a href= "{{ route('form.show') }}">Регистрация</a></p>
+  @foreach ($employees as $empl)
+  
         <div class="block1">
-          
+          <h1 class="glyphicon glyphicon-pencil"></h1>
+                <h1 class="glyphicon glyphicon-floppy-remove"></h1>
           <div class="block5">
             
               <div class="form-group">
                 <label for="myInput">Фамилия:</label>
-                <p class="styletext2">{{ $form->lastname }}</p>
+                <p class="styletext2">{{ $empl->lastname }}</p>
+                
               </div>
               <div class="form-group">
                 <label for="myInput">Имя:</label>
-                <p class="styletext2">{{ $form->firstname }}</p>
+                <p class="styletext2">{{ $empl->firstname }}</p>
+              
               </div>
               <div class="form-group">
                 <label for="myInput">Отчество:</label>
-                <p class="styletext2">{{ $form->patronymic }}</p>
+                <p class="styletext2">{{ $empl->patronymic }}</p>
               </div>
             
             
           
             <div class="form-group">
               <label for="myInput">Компания:</label>
-              <p class="styletext2" >{{ $department->company }}</p>
+              <p class="styletext2" >{{ $empl->company }}</p>
             </div>
             <div class="form-group">
               <label for="myInput">Отдел:</label>
-              <p class="styletext2" >{{ $department->department }}</p>
+              <p class="styletext2" >{{ $empl->department }}</p>
             </div>
             <hr>
             
@@ -72,7 +51,7 @@
       
         </div>
         <br>
-          @endforeach
+      
           @endforeach
 </body>
 </html>

@@ -21,5 +21,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/', 'ListFormController@index')->name('index');
 
     Route::get('/form', 'RegFormController@show')->name('form.show');
-    Route::post('/form', 'RegFormController@login')->name('form.perform');
+    Route::post('/form', 'RegFormController@registration')->name('form.registration');
+    
 });

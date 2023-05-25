@@ -19,39 +19,42 @@
                     <b>Registration form</b>
                 </p>
             </div>
-            <form method="POST" action="send.php">
-                
+            <form method="post" action="{{ route('form.registration') }}">
+                @csrf
                 <div class="form-group">
                     
                   </div>
                 <div class="block5">
                     <div class="form-group">
-                    <label for="myInput">Фамилия:</label>
-                    <input type="text2" id="myInput" name="myInput">
+                        <label for="myInput">Фамилия:</label>
+                        <input type="text2" id="myInput" name="last_name">
+                        <p class="glyphicon glyphicon-pencil">fff</p>
                     </div>
                     <div class="form-group">
-                    <label for="myInput">Имя:</label>
-                    <input type="text2" id="myInput" name="myInput">
+                        <label for="myInput">Имя:</label>
+                        <input type="text2" id="myInput" name="first_name" >
                     </div>
                     <div class="form-group">
-                    <label for="myInput">Отчество:</label>
-                    <input type="text3" id="myInput" name="myInput" >
+                        <label for="myInput">Отчество:</label>
+                        <input type="text3" id="myInput" name="patronymic" >
                     </div>
                     
                     <hr>
                     <div class="form-group">
                         <label for="myInput">Компания:</label>
-                        <select id="tag-select" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                            @foreach ($deps as $dep)
-                            <option value={{ $dep->id }} selected disabled>{{ $dep->company }}</option>
+                        <select id="tag-select" name="company" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                            @foreach($companies as $company)
+                            
+                            <option value={{ $company->company_name }} >{{ $company->company_name }}</option>
+                           
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="myInput">Отдел:</label>
-                        <select id="tag-select" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                            @foreach ($deps as $dep)
-                            <option value={{ $dep->id }} selected disabled>{{ $dep->department }}</option>
+                        <label for="department">Отдел:</label>
+                        <select id="department" name="department" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                             @foreach($departments as $department)
+                            <option value="{{ $department->department_name }}">{{ $department->department_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -68,6 +71,7 @@
                     <button class="btn btn-primary" style="width: 100%;">Отправить</button>
                 </div>
             </form>
+
         </div>
     </div>
 </body>
