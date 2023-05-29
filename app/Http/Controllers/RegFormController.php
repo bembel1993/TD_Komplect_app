@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RegFormController extends Controller
 {
@@ -21,16 +22,6 @@ class RegFormController extends Controller
         $companies = Company::all();
         $departments = Department::all();
         return view('reg.form', compact('companies', 'departments'));
-
-        /* $departments = Department::with('companies')->get();
-        foreach ($departments as $department) {
-            $companys = $department->companies;
-            foreach ($companys as $company) {
-            }
-        }
-        return view('reg.form', ['departments' => $departments], ['companys' => $companys]);*/
-        // $deps = Department::all();
-        // return view('reg.form', ['deps' => $deps]);
     }
 
     public function registration(Request $request)
@@ -41,8 +32,56 @@ class RegFormController extends Controller
         $formData->patronymic = $request->input('patronymic');
         $formData->company = $request->input('company');
         $formData->department = $request->input('department');
-        $formData->save();
 
-        return redirect()->back()->with('success', 'Form data added successfully!');
+        $validator = Validator::make($request->all(), [
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'patronymic' => 'required',
+            'company' => 'required',
+            'department' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            $formData->save();
+            return redirect()->route('index');
+        }
+        /*
+        if (empty($request->input('last_name'))) {
+            echo '<p style="color: red">Field Last name is empty</p>';
+        } elseif (empty($request->input('first_name'))) {
+            echo '<p style="color: red">Field First name is empty</p>';
+        } elseif (empty($request->input('patronymic'))) {
+            echo '<p style="color: red">Field Patronymic is empty</p>';
+        } elseif (empty($request->input('company'))) {
+            echo '<p style="color: red">Field Company is empty</p>';
+        } elseif (empty($request->input('department'))) {
+            echo '<p style="color: red">Field Department is empty</p>';
+        } else {
+            $formData->save();
+            return redirect()->back()->with('success', 'Form data added successfully!');
+        }*/
+
+        //$formData->save();
+
+        //return redirect()->back()->with('success', 'Form data added successfully!');
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Find the employee record with the specified id
+        $employee = Employee::find($id);
+
+        // Update the employee record with the form data
+        $employee->lastname = $request->input('lastname');
+        $employee->firstname = $request->input('firstname');
+        $employee->patronymic = $request->input('patronymic');
+        $employee->company = $request->input('company');
+        $employee->department = $request->input('department');
+        $employee->save();
+
+        // Redirect to the employee list page
+        return redirect()->route('index');
     }
 }

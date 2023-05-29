@@ -12,12 +12,17 @@
 
 
 
-  <p class="nameOfArticle"><a href= "{{ route('form.show') }}">Регистрация</a></p>
+  <p class="nameOfArticle"><a href= "{{ route('form.show') }}">Создать новую форму</a></p>
   @foreach ($employees as $empl)
-  
         <div class="block1">
-          <h1 class="glyphicon glyphicon-pencil"></h1>
+          <a href="" class="btn btn-primary btn-xs">
+            <h1 class="glyphicon glyphicon-pencil"></h1>
+          </a>
+          
+          <a href="" class="btn btn-primary btn-xs btn-default pull-right">
                 <h1 class="glyphicon glyphicon-floppy-remove"></h1>
+          </a>
+        
           <div class="block5">
             
               <div class="form-group">
@@ -44,6 +49,11 @@
             <div class="form-group">
               <label for="myInput">Отдел:</label>
               <p class="styletext2" >{{ $empl->department }}</p>
+            </div>
+            
+            <div class="form-group">
+              <label for="myInput">Дата создания:</label>
+              <p class="styletext2" >{{ $empl->created_at }}</p>
             </div>
             <hr>
             

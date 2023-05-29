@@ -141,49 +141,37 @@ input[type="text3"] {
     flex: 1;
   }
 
-
-
-
-  .select-container {
+  .form-lastname{
+    top: -5%;
     position: relative;
-    margin: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
+    /*left: 20%;*/
+    margin: auto;
+    height: 45%;
+    width: 40%;
+    border: solid 1px rgb(12, 0, 12);
+} 
+
+.form-input-lastname{
+  top: -5%;
+    position: relative;
+    right: 5%;
+    margin: auto;
+    height: 45%;
+    width: 55%;
+    border: solid 1px rgb(12, 0, 12);
+}
+
+.form-input-lastname2{
+  top: -5%;
+    position: relative;
+    right: 5%;
+    margin: auto;
+    height: 45%;
+    width: 55%;
+    border: solid 1px rgb(12, 0, 12);
+}
+
+.text-danger {
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
-  }
-  
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    font-size: 16px;
-    color: #333;
-    appearance: none;
-    text-align: left;
-  }
-  
-  select:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  select::-ms-expand {
-    display: none;
-  }
-  
-  .select-container::after {
-    content: "\25BC";
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #333;
-    pointer-events: none;
   }
