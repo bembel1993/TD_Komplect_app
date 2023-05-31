@@ -24,6 +24,11 @@ class RegFormController extends Controller
         return view('reg.form', compact('companies', 'departments'));
     }
 
+    public function showupdate(Request $request, $id){
+        $employee = Employee::find($id);
+        return view('reg.form', compact('employees', 'employee'));
+    }
+
     public function registration(Request $request)
     {
         $formData = new Employee();
@@ -70,18 +75,53 @@ class RegFormController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Find the employee record with the specified id
         $employee = Employee::find($id);
+        if ($employee) {
+            $employee->lastname = $request->input('last_name');
+            $employee->firstname = $request->input('first_name');
+            $employee->patronymic = $request->input('patronymic');
+            $employee->company = $request->input('company');
+            $employee->department = $request->input('department');
+            $employee->save();
 
-        // Update the employee record with the form data
-        $employee->lastname = $request->input('lastname');
-        $employee->firstname = $request->input('firstname');
-        $employee->patronymic = $request->input('patronymic');
-        $employee->company = $request->input('company');
-        $employee->department = $request->input('department');
-        $employee->save();
+            $validator = Validator::make($request->all(), [
+                'last_name' => 'required',
+                'first_name' => 'required',
+                'patronymic' => 'required',
+                'company' => 'required',
+                'department' => 'required',
+            ]);
 
-        // Redirect to the employee list page
-        return redirect()->route('index');
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            } else {
+                $employee->save();
+                return redirect()->route('index');
+            }
+
+            //return redirect()->route('reg.form');
+        } else {
+            $formData = new Employee();
+            $formData->lastname = $request->input('last_name');
+            $formData->firstname = $request->input('first_name');
+            $formData->patronymic = $request->input('patronymic');
+            $formData->company = $request->input('company');
+            $formData->department = $request->input('department');
+
+            $validator = Validator::make($request->all(), [
+                'last_name' => 'required',
+                'first_name' => 'required',
+                'patronymic' => 'required',
+                'company' => 'required',
+                'department' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            } else {
+                $formData->save();
+                return redirect()->route('index');
+            }
+        }
     }
 }

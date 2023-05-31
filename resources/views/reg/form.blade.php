@@ -12,7 +12,11 @@
 </head>
 
 <body>
-    <p class="nameOfArticle"><a href= "{{ route('index') }}">Назад</a></p>
+    <p class="nameOfArticle">
+        <a href= "{{ route('index') }}" class="btn btn-primary btn-xs ">
+            Назад
+        </a>
+    </p>
     <div class="block1">
         <div class="block2">
             <div class="block3">
@@ -20,9 +24,6 @@
                     <b>Форма</b>
                 </p>
             </div>
-            @if (isset($success) && $success)
-    <p style="color:green">Registration successful!</p>
-@endif
             <form method="post" action="{{ route('form.registration') }}">
                 @csrf
                 <div class="form-group">
@@ -34,6 +35,7 @@
                             <label for="myInput">Фамилия:</label>
                         </div>
                         <div class="form-input-lastname">
+                            
                             <input type="text2" id="myInput" name="last_name" value="{{ old('last_name') }}">
                             @if ($errors->has('last_name'))
                                 <div class="text-danger">{{ $errors->first('last_name') }}</div>

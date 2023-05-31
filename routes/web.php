@@ -22,5 +22,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::get('/form', 'RegFormController@show')->name('form.show');
     Route::post('/form', 'RegFormController@registration')->name('form.registration');
-    
+
+    //Route::post('/form/{id}/update', 'RegFormController@update')->name('form.update');
+    Route::get('/form/{id}', 'RegFormController@update')->name('form.update');
 });
