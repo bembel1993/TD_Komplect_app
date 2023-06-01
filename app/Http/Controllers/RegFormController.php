@@ -24,9 +24,12 @@ class RegFormController extends Controller
         return view('reg.form', compact('companies', 'departments'));
     }
 
-    public function showupdate(Request $request, $id){
-        $employee = Employee::find($id);
-        return view('reg.form', compact('employees', 'employee'));
+    public function showupdate($id){
+        $companies = Company::all();
+        $departments = Department::all();
+        $employees = Employee::find($id);
+       // dd($employees->toArray());
+        return view('reg.update', compact('employees', 'departments', 'companies'));
     }
 
     public function registration(Request $request)
@@ -96,32 +99,13 @@ class RegFormController extends Controller
                 return redirect()->back()->withErrors($validator)->withInput();
             } else {
                 $employee->save();
-                return redirect()->route('index');
+                return redirect()->route('form.index')->with('success', 'Employee record updated successfully.');
+                // return redirect()->route('index');
             }
 
             //return redirect()->route('reg.form');
         } else {
-            $formData = new Employee();
-            $formData->lastname = $request->input('last_name');
-            $formData->firstname = $request->input('first_name');
-            $formData->patronymic = $request->input('patronymic');
-            $formData->company = $request->input('company');
-            $formData->department = $request->input('department');
-
-            $validator = Validator::make($request->all(), [
-                'last_name' => 'required',
-                'first_name' => 'required',
-                'patronymic' => 'required',
-                'company' => 'required',
-                'department' => 'required',
-            ]);
-
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator)->withInput();
-            } else {
-                $formData->save();
-                return redirect()->route('index');
-            }
+            return redirect()->route('form.index')->with('error', 'Employee record updated fails.');
         }
     }
 }

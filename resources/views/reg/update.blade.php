@@ -17,6 +17,7 @@
             Назад
         </a>
     </p>
+    
     <div class="block1">
         <div class="block2">
             <div class="block3">
@@ -24,22 +25,19 @@
                     <b>Форма</b>
                 </p>
             </div>
-            <form method="post" action="{{ route('form.registration') }}">
-                @csrf
-                <div class="form-group">
+            <form method="post" action="{{ route('form.update', $employees->id) }}">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
                     
-                  </div>
-                <div class="block5">
+                    </div>
+                  <div class="block5">
                     <div class="form-group">
                         <div class="form-lastname">
                             <label for="myInput">Фамилия:</label>
                         </div>
                         <div class="form-input-lastname">
-                            
-                            <input type="text2" id="myInput" name="last_name" >
-                            @if ($errors->has('last_name'))
-                                <div class="text-danger">{{ $errors->first('last_name') }}</div>
-                            @endif
+                        <input type="text3" name="last_name" id="last_name" value="{{ old('last_name', $employees->lastname) }}" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,10 +45,7 @@
                             <label for="myInput">Имя:</label>
                         </div>
                         <div class="form-input-lastname">
-                            <input type="text2" id="myInput" name="first_name" >
-                            @if ($errors->has('first_name'))
-                                <div class="text-danger">{{ $errors->first('first_name') }}</div>
-                            @endif
+                        <input type="text3" name="first_name" id="first_name" value="{{ old('first_name', $employees->firstname) }}" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -58,25 +53,22 @@
                             <label for="myInput">Отчество:</label>
                         </div>
                         <div class="form-input-lastname">
-                            <input type="text3" id="myInput" name="patronymic" >
-                            @if ($errors->has('patronymic'))
-                                <div class="text-danger">{{ $errors->first('patronymic') }}
-                                </div>
-                            @endif
+                        <input type="text3" name="patronymic" id="patronymic" value="{{ old('patronymic', $employees->patronymic) }}" />
                         </div>
                     </div>
-                    
+
                     <hr>
+
                     <div class="form-group">
                         <div class="form-lastname">
                             <label for="myInput">Компания:</label>
                         </div>
                         <div class="form-input-lastname2">
-                            <select id="tag-select" name="company" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                            @foreach($companies as $company)
-                                <option value={{ $company->company_name }} >{{ $company->company_name }}</option>
+                        <select name="company_id" id="company_id" class="form-select form-select-lg mb-3">
+                            @foreach ($companies as $company)
+                                <option value="{{ $company->id }}" @if ($company->company_name == old('company', $employees->company)) selected @endif>{{ $company->company_name }}</option>
                             @endforeach
-                            </select>
+                        </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -84,11 +76,11 @@
                             <label for="department">Отдел:</label>
                         </div>
                         <div class="form-input-lastname2">
-                            <select id="department" name="department" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                             @foreach($departments as $department)
-                                <option value="{{ $department->department_name }}">{{ $department->department_name }}</option>
+                        <select name="department_id" id="department_id" class="form-select form-select-lg mb-3">
+                            @foreach ($departments as $department)
+                                <option value="{{ $department->id }}" @if ($department->department_name == old('department', $employees->department)) selected @endif>{{ $department->department_name }}</option>
                             @endforeach
-                            </select>
+                        </select>
                         </div>
                     </div>
                     <p class="styletext2">
@@ -101,12 +93,13 @@
                     </p>
                 </div>
                 <div class="block7">
-                    <button class="btn btn-primary" style="width: 100%;">Отправить</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Обновить</button>
                 </div>
-            </form>
+                </form>
 
         </div>
     </div>
+    
 </body>
 
 </html>
