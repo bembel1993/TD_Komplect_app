@@ -11,10 +11,13 @@
 <body>
   <p class="nameOfArticle">
     <a href= "{{ route('form.show') }}" class="btn btn-primary btn-xs">
-      Создать новую форму
+      Создать пользователя
+    </a>
+    <a href= "{{ route('edit.showeditform') }}" class="btn btn-primary btn-xs ">
+        Создать форму
     </a>
   </p>
-  
+ 
   @foreach ($employees as $empl)
   
         <div class="block1">

@@ -40,4 +40,8 @@ class ListFormController extends Controller
        // return view('index', ['departments' => $departments], ['forms' => $forms]);
     }
 
+    public function showeditform(){
+      return view('reg.editform');
+    }
+
 }
