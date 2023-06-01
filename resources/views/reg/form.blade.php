@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-input-lastname">
                             
-                            <input type="text2" id="myInput" name="last_name" >
+                            <input type="text2" id="last_name" name="last_name" >
                             @if ($errors->has('last_name'))
                                 <div class="text-danger">{{ $errors->first('last_name') }}</div>
                             @endif
@@ -47,7 +47,7 @@
                             <label for="myInput">Имя:</label>
                         </div>
                         <div class="form-input-lastname">
-                            <input type="text2" id="myInput" name="first_name" >
+                            <input type="text2" id="first_name" name="first_name" >
                             @if ($errors->has('first_name'))
                                 <div class="text-danger">{{ $errors->first('first_name') }}</div>
                             @endif
@@ -58,7 +58,7 @@
                             <label for="myInput">Отчество:</label>
                         </div>
                         <div class="form-input-lastname">
-                            <input type="text3" id="myInput" name="patronymic" >
+                            <input type="text3" id="patronymic" name="patronymic" >
                             @if ($errors->has('patronymic'))
                                 <div class="text-danger">{{ $errors->first('patronymic') }}
                                 </div>
@@ -107,6 +107,7 @@
 
         </div>
     </div>
+    <script src="{{ asset('jsstyle.js') }}"></script>
 </body>
 
 </html>

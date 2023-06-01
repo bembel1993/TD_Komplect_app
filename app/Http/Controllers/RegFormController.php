@@ -85,7 +85,6 @@ class RegFormController extends Controller
             $employee->patronymic = $request->input('patronymic');
             $employee->company = $request->input('company');
             $employee->department = $request->input('department');
-            $employee->save();
 
             $validator = Validator::make($request->all(), [
                 'last_name' => 'required',
@@ -99,8 +98,8 @@ class RegFormController extends Controller
                 return redirect()->back()->withErrors($validator)->withInput();
             } else {
                 $employee->save();
-                return redirect()->route('form.index')->with('success', 'Employee record updated successfully.');
-                // return redirect()->route('index');
+                //return redirect()->route('form.index')->with('success', 'Employee record updated successfully.');
+                return redirect()->route('index');
             }
 
             //return redirect()->route('reg.form');
