@@ -1,7 +1,7 @@
 # TD Komplect
 ____
 ### Used technologies
-#### Language - PHP
+#### Language - PHP / JavaScript
 #### Framework - Laravel
 #### DB - MySQL
 ____
