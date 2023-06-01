@@ -17,7 +17,7 @@
         Создать форму
     </a>
   </p>
- 
+  
   @foreach ($employees as $empl)
   
         <div class="block1">
@@ -82,6 +82,7 @@
           </div>
         </div>
         <br>
+  
   @endforeach
   
 </body>

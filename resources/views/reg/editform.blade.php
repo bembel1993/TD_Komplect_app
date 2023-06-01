@@ -27,37 +27,36 @@
             <form method="post" action="{{ route('form.registration') }}">
                 @csrf
                 <div class="form-group">
-                    
-                  </div>
-                <div class="block5">
-                    <div class="form-group">
-                        <div class="form-lastname">
-                            <label for="myInput">Фамилия:</label>
+                </div>
+                <div id="fields" class="block5">
+                    <div for="field1" class="form-group">
+                        <div id="field1" name="field1" class="form-lastname">
+                            <label id="field1" name="field1" for="myInput">Фамилия:</label>
                         </div>
-                        <div class="form-input-lastname">                           
-                            <input type="text2" id="last_name" name="last_name" >
+                        <div id="field1" name="field1" class="form-input-lastname">                           
+                            <input id="field1" name="field1" type="text2" id="last_name" name="last_name" >
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="add-field">
                             <h1 class="glyphicon glyphicon-ok">
                             </h1>
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="del-field-lastname">
                             <h1 class="glyphicon glyphicon-remove">
                             </h1>
                         </button>
                     </div>
-                    <div class="form-group">
+                  <!--  <div class="form-group">
                         <div class="form-lastname">
                             <label for="myInput">Имя:</label>
                         </div>
                         <div class="form-input-lastname">
                             <input type="text2" id="first_name" name="first_name" >
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="add-field-firstname">
                             <h1 class="glyphicon glyphicon-ok">
                             </h1>
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="del-field-firstname">
                             <h1 class="glyphicon glyphicon-remove">
                             </h1>
                         </button>
@@ -69,11 +68,11 @@
                         <div class="form-input-lastname">
                             <input type="text3" id="patronymic" name="patronymic" >
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="add-field-patronymic">
                             <h1 class="glyphicon glyphicon-ok">
                             </h1>
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="del-field-patronymic">
                             <h1 class="glyphicon glyphicon-remove">
                             </h1>
                         </button>
@@ -89,11 +88,11 @@
                                 <option value="" ></option>
                             </select>
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="add-field-company">
                             <h1 class="glyphicon glyphicon-ok">
                             </h1>
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="del-field-company">
                             <h1 class="glyphicon glyphicon-remove">
                             </h1>
                         </button>
@@ -107,15 +106,16 @@
                                 <option value=""></option>
                             </select>
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="add-field-dep">
                             <h1 class="glyphicon glyphicon-ok">
                             </h1>
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="del-field-dep">
                             <h1 class="glyphicon glyphicon-remove">
                             </h1>
                         </button>
-                    </div>
+                    </div>-->
+                
                     <p class="styletext2">
                        
                     </p>
@@ -125,14 +125,47 @@
                         
                     </p>
                 </div>
-               <!-- <div class="block7">
+                <!-- <div class="block7">
                     <button class="btn btn-primary" style="width: 100%;">Отправить</button>
-                </div>-->
+                </div> -->
             </form>
-
+           
         </div>
     </div>
     <script src="{{ asset('jsstyle.js') }}"></script>
+    <script>
+        
+        const form = document.querySelector('form');
+        const addFieldButton = document.querySelector('#add-field');
+
+        addFieldButton.addEventListener('click', () => {
+        
+        const newField = document.createElement('div');
+        newField.innerHTML = `
+                    <div for="field" class="form-group">
+                        <div id="field" name="field" class="form-lastname">
+                            <label id="field" name="field" for="myInput">Имя:</label>
+                        </div>
+                        <div id="field" name="field" class="form-input-lastname">
+                            <input  type="text2" id="field" name="field" >
+                        </div>
+                        <button class="btn btn-primary" id="add-field-firstname">
+                            <h1 class="glyphicon glyphicon-ok">
+                            </h1>
+                        </button>
+                        <button class="btn btn-primary" id="del-field-firstname">
+                            <h1 class="glyphicon glyphicon-remove">
+                            </h1>
+                        </button>
+                    </div>
+            `;
+        
+        document.querySelector('#fields').appendChild(newField);
+  
+        const removeFieldButton = newField.querySelector('.del-field-firstname');
+        removeFieldButton.addEventListener('click', () => {newField.remove();});
+    });
+    </script>
 </body>
 
 </html>
