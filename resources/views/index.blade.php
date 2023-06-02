@@ -16,6 +16,9 @@
     <a href= "{{ route('edit.showeditform') }}" class="btn btn-primary btn-xs ">
         Создать форму
     </a>
+    <a href= "{{ route('see.showallform') }}" class="btn btn-primary btn-xs ">
+      Посмотреть все формы
+  </a>
   </p>
   
   @foreach ($employees as $empl)
