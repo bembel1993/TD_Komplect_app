@@ -35,12 +35,22 @@
                   <div class="field">
                     <label for="field-name-0">Field name:</label>
                     <input type="text" id="field-name-0" name="fields[0][name]" required>
-              
+
+                    <label for="field-atribut-0">Field atribut:</label>
+                    <select id="field-atribut-0" name="fields[0][atribut]" required>
+                      <option value="last_name">last_name</option>
+                      <option value="first_name">first_name</option>
+                      <option value="patronymic">patronymic</option>
+                      <option value="company">company</option>
+                      <option value="department">department</option>
+                    </select>
+              <br>
                     <label for="field-type-0">Field type:</label>
                     <select id="field-type-0" name="fields[0][type]" required>
                       <option value="text">Text</option>
                       <option value="email">Email</option>
                       <option value="number">Number</option>
+                      <option value="select">Select</option>
                     </select>
               
                     <label for="field-required-0">Required:</label>
@@ -71,12 +81,21 @@
           var field = '<div class="field">' +
             '<label for="field-name-' + fieldCount + '">Field name:</label>' +
             '<input type="text" id="field-name-' + fieldCount + '" name="fields[' + fieldCount + '][name]" required>' +
-      
+            '<label for="field-atribut-' + fieldCount + '">Field atribut:</label>' +
+            '<select id="field-atribut-' + fieldCount + '" name="fields[' + fieldCount + '][atribut]" required>' +
+              '<option value="last_name">last_name</option>' +
+              '<option value="first_name">first_name</option>' +
+              '<option value="patronymic">patronymic</option>' +
+              '<option value="company">company</option>' +
+              '<option value="department">department</option>' +
+            '</select>' +
+            '<br>' +
             '<label for="field-type-' + fieldCount + '">Field type:</label>' +
             '<select id="field-type-' + fieldCount + '" name="fields[' + fieldCount + '][type]" required>' +
               '<option value="text">Text</option>' +
               '<option value="email">Email</option>' +
               '<option value="number">Number</option>' +
+              '<option value="select">Select</option>' +
             '</select>' +
       
             '<label for="field-required-' + fieldCount + '">Required:</label>' +

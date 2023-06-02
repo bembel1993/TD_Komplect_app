@@ -24,7 +24,7 @@
                 </p>
             </div>
             <form>
-                @foreach ($fields as $field)
+         <!--   @foreach ($fields as $field)
                     <label for="{{ $field->name }}">{{ $field->name }}{{ $field->required ? '*' : '' }}:</label>
                 @if ($field->type == 'text')
                     <input type="text" id="{{ $field->name }}" name="{{ $field->name }}"{{ $field->required ? ' required' : '' }}>
@@ -33,63 +33,51 @@
                 @elseif ($field->type == 'number')
                     <input type="number" id="{{ $field->name }}" name="{{ $field->name }}"{{ $field->required ? ' required' : '' }}>
                 @endif
-                @endforeach
+                @endforeach-->
             </form>
             <form method="post" action="{{ route('form.registration') }}">
-                @csrf
-              
-                <div class="form-group">
-                    
-                  </div>
+                @csrf             
                 <div class="block5">
+                    @foreach ($fields as $field)
                     <div class="form-group">
                         <div class="form-lastname">
                             <label for="{{ $field->name }}">{{ $field->name }}{{ $field->required ? '*' : '' }}:</label>
                         </div>
+                        @if ($field->type == 'text')
                         <div class="form-input-lastname">
-                            @if ($field->type == 'text')
-                                <input type=text class="text2" id="{{ $field->name }}" name="{{ $field->name }}"{{ $field->required ? ' required' : '' }} >
-                                    @if ($errors->has('{{ $field->name }}'))
-                                        <div class="text-danger">{{ $errors->first('{{ $field->name }}') }}</div>
-                                    @endif
-                            @elseif ($field->type == 'email')
-                                <input type=email class="text2" id="{{ $field->name }}" name="{{ $field->name }}"{{ $field->required ? ' required' : '' }} >
-                                    @if ($errors->has('{{ $field->name }}'))
-                                        <div class="text-danger">{{ $errors->first('{{ $field->name }}') }}</div>
-                                    @endif
-                            @elseif ($field->type == 'number')
-                                <input type=number class="text2" id="{{ $field->name }}" name="{{ $field->name }}"{{ $field->required ? ' required' : '' }} >
-                                    @if ($errors->has('{{ $field->name }}'))
-                                        <div class="text-danger">{{ $errors->first('{{ $field->name }}') }}</div>
-                                    @endif
-                            @endif
+                            <input type="text" name="{{ $field->atribut }}" id="{{ $field->name }}" class="text3"{{ $field->required ? ' required' : '' }}>
                         </div>
+                        @elseif ($field->type == 'email')
+                            <input type="email" name="{{ $field->atribut }}" id="{{ $field->name }}" class="text3"{{ $field->required ? ' required' : '' }}>
+                        @elseif ($field->type == 'number')
+                            <input type="number" name="{{ $field->atribut }}" id="{{ $field->name }}" class="text3"{{ $field->required ? ' required' : '' }}>
+                        @elseif ($field->type == 'select')
+                            <hr>
+                            @if($field->atribut == 'company')
+                                <div class="form-input-lastname2">
+                                    <select type="select" name="{{ $field->atribut }}" id="{{ $field->name }}" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                                    @foreach($companies as $company)
+                                        <option value={{ $company->company_name }} >{{ $company->company_name }}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                            @elseif($field->atribut == 'department')
+                                <div class="form-input-lastname2">
+                                    <select type="select" name="{{ $field->atribut }}" id="{{ $field->name }}" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                                    @foreach($departments as $dep)
+                                        <option value={{ $dep->department_name }} >{{ $dep->department_name }}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                            @endif  
+                        @endif
+                        @if ($errors->has($field->name))
+                        <span class="text-danger">{{ $errors->first($field->name) }}</span>
+                        @endif
                     </div>
+                    @endforeach
+
                     <hr>
-                    <div class="form-group">
-                        <div class="form-lastname">
-                            <label for="myInput">Компания:</label>
-                        </div>
-                        <div class="form-input-lastname2">
-                            <select id="tag-select" name="company" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                            @foreach($companies as $company)
-                                <option value={{ $company->company_name }} >{{ $company->company_name }}</option>
-                            @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-lastname">
-                            <label for="department">Отдел:</label>
-                        </div>
-                        <div class="form-input-lastname2">
-                            <select id="department" name="department" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                             @foreach($departments as $department)
-                                <option value="{{ $department->department_name }}">{{ $department->department_name }}</option>
-                            @endforeach
-                            </select>
-                        </div>
-                    </div>
                     <p class="styletext2">
                        
                     </p>
