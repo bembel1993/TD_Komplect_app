@@ -3,13 +3,24 @@ ____
 ### Used technologies
 #### Language - PHP / JavaScript
 #### Framework - Laravel
+#### Librarys - JQuery, Bootstrap
 #### DB - MySQL
 ____
 ### Using App 
+1) При запуске приложения отображается страница с зарегестрированными в БД пользователями, в верху располагаются кнопки сохранения пользователя, создания анкеты/формы, и просмотр всех созданных анкет/форм.
 ![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/1php.png)
+____
+2) При нажатии на кнопку создать форму, система перенаправляет на страницу с конструктором формы, на которой указаны поля - Название формы, название поля, его тип, атрибут (для определения выпадающего списка); под полями находятся три кнопки - добавить(зеленая) поле, удалить(красная) поле, сохранить(голубая) созданную форму. Все поля сохраниються в базе данных и связанны ключом с таблицей Формы. 
 ![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/2php.png)
+____
+3) После нажатия на кнопку сохранить, система перенаправляет на страницу с созданной формой, где можно осуществить ввод данных, для регистрации новой персоны и добавления его в БД.
 ![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/3php.png)
+____
+4) При нажатии на главной странице кнопки "ПОСМОТРЕТЬ ВСЕ ФОРМЫ", система перенаправляет на страницу с выгруженными из БД всеми анкетами. Каждая акета имеет в левом верхнем углу кнопку PLAY, которая перенаправляет на соответствующую форму, по ID, с последующей регистрацией пользователя.
 ![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/4php.png)
+5) При нажатии на главной странице на кнопку "СОЗДАТЬ ПОЛЬЗОВАТЕЛЯ", система перенаправляет на страницу со стандартной формой для регистрации.
+![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/5php.png)
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
