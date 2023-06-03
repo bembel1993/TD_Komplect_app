@@ -15,7 +15,10 @@ ____
 ____
 3) После нажатия на кнопку сохранить, система перенаправляет на страницу с созданной формой, где можно осуществить ввод данных, для регистрации новой персоны и добавления его в БД.
 ![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/3php.png)
+____
+4) При нажатии на главной странице кнопки "ПОСМОТРЕТЬ ВСЕ ФОРМЫ", система перенаправляет на страницу с выгруженными из БД всеми анкетами. Каждая акета имеет в левом верхнем углу кнопку PLAY, которая перенаправляет на соответствующую форму, по ID, с последующей регистрацией пользователя.
 ![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/4php.png)
+5) При нажатии на главной странице на кнопку "СОЗДАТЬ ПОЛЬЗОВАТЕЛЯ", система перенаправляет на страницу со стандартной формой для регистрации.
 ![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/5php.png)
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
