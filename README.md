@@ -21,22 +21,6 @@ ____
 5) При нажатии на главной странице на кнопку "СОЗДАТЬ ПОЛЬЗОВАТЕЛЯ", система перенаправляет на страницу со стандартной формой для регистрации.
 ![Start page of Application](https://github.com/bembel1993/imgForDiplom/blob/main/5php.png)
 
-#### Таблица fields
-CREATE TABLE `fields` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `required` tinyint(1) NOT NULL DEFAULT '0',
-  `form_id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-ALTER TABLE `fields`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `fields`
-  MODIFY `id` int(10) UNSIGNED
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
