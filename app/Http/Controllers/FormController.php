@@ -32,6 +32,7 @@ class FormController extends Controller
             $field = new Field();
             $field->name = $fieldData['name'];
             $field->type = $fieldData['type'];
+            $field->atribut = $fieldData['atribut'];
             $field->required = isset($fieldData['required']);
             $field->form_id = $form->id;
             $field->save();
