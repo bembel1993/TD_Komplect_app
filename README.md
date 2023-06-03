@@ -3,6 +3,7 @@ ____
 ### Used technologies
 #### Language - PHP / JavaScript
 #### Framework - Laravel
+#### Librarys - JQuery, Bootstrap
 #### DB - MySQL
 ____
 ### Using App 
