@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Employee extends Migration
+class Fieldstable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class Employee extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('fields', function (Blueprint $table) {
             $table->id();
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('patronymic');
-            $table->string('company');
-            $table->string('department');
+            $table->string('name');
+            $table->string('type');
+            $table->string('atribut');
+            $table->integer('required');
+            $table->unsignedBigInteger('form_id');
+            $table->foreign('form_id')->references('id')->on('forms');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class Employee extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employees');
+        //
     }
 }
