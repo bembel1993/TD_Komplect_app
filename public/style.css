@@ -175,3 +175,15 @@ input[type="text3"] {
     font-size: 1.5rem;
     font-weight: bold;
   }
+
+  a#choice-btn {
+    background: linear-gradient(to bottom, #ff00ea, #1e7be2);
+    border-color: royalblue;
+    color: white(248, 146, 223);
+    
+  }
+
+  #choice-btn:hover {
+    background-color: pink;
+    box-shadow: 0 0 30px rgb(252, 2, 252);
+  }

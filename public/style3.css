@@ -6,8 +6,8 @@
 .block1 {
     margin: auto;
     top: 0%;
-    width: 47%;
-    height: 1000px;
+    width: auto;
+    height: auto;
     border-radius: 1px;
     /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);*/
     background-color: rgb(130, 180, 238);
@@ -17,7 +17,7 @@
     position: relative;
     /*left: 20%;*/
     margin: auto;
-    height: 520px;
+    height: 620px;
     width: 90%;
     /*border: solid 1px rgb(10, 0, 10);*/
 }
@@ -183,3 +183,25 @@ input[type="text1"] {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+a#use-field-btn {
+    background-color: #fa03c4; /* Change this to your desired color */
+    border-color: #f80303; /* Change this to your desired color */
+  }
+  
+  #use-field-btn:hover {
+    background-color: #532fd3; /* Change this to your desired hover color */
+    border-color: #2fd33d; /* Change this to your desired hover color */
+  }
+
+  a#choice-btn {
+    background: linear-gradient(to bottom, #ff00ea, #1e7be2);
+    border-color: royalblue;
+    color: white(248, 146, 223);
+    
+  }
+
+  #choice-btn:hover {
+    background-color: pink;
+    box-shadow: 0 0 30px rgb(252, 2, 252);
+  }

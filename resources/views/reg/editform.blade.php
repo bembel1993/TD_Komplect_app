@@ -13,8 +13,8 @@
 
 <body>
     <p class="nameOfArticle">
-        <a href= "{{ route('index') }}" class="btn btn-primary btn-xs ">
-            Назад
+        <a href= "{{ route('index') }}" class="btn btn-primary btn-lg text-uppercase" id="choice-btn">
+          <i class="glyphicon glyphicon-menu-left" aria-hidden="true"></i> Назад
         </a>
     </p>
 

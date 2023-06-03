@@ -5,15 +5,15 @@
     <title>Application for Participation</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="{{ asset('style3.css') }}" rel="stylesheet">
+    <link href="{{ asset('style5.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 
 <p class="nameOfArticle">
-        <a href= "{{ route('index') }}" class="btn btn-primary btn-xs ">
-            Назад
+        <a href= "{{ route('index') }}" class="btn btn-primary btn-lg text-uppercase" id="choice-btn">
+            <i class="glyphicon glyphicon-menu-left" aria-hidden="true"></i> Назад
         </a>
     </p>
     <div class="block1">
@@ -41,7 +41,7 @@
                     @foreach ($fields as $field)
                     <div class="form-group">
                         <div class="form-lastname">
-                            <label for="{{ $field->name }}">{{ $field->name }}{{ $field->required ? '*' : '' }}:</label>
+                            <label for="{{ $field->name }}">{{ $field->name }}{{ $field->required ? '' : '' }}:</label>
                         </div>
                         @if ($field->type == 'text')
                         <div class="form-input-lastname">
@@ -94,5 +94,6 @@
             </form>
         </div>
     </div>
+    <script src="{{ asset('jsstyle.js') }}"></script>
 </body>
 </html>

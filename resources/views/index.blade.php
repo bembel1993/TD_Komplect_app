@@ -7,22 +7,23 @@
     <link href="{{ asset('style2.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
 <body>
   <p class="nameOfArticle">
-    <a href= "{{ route('form.show') }}" class="btn btn-primary btn-xs">
-      Создать пользователя
+    <a href= "{{ route('form.show') }}" class="btn btn-primary btn-lg text-uppercase" id="choice-btn">
+      <i class="fas fa-user" aria-hidden="true"></i> Создать пользователя
     </a>
-    <a href= "{{ route('edit.showeditform') }}" class="btn btn-primary btn-xs ">
-        Создать форму
+    <a href= "{{ route('edit.showeditform') }}" class="btn btn-primary btn-lg text-uppercase " id="choice-btn">
+      <i class="far fa-file-alt" aria-hidden="true"></i> Создать форму
     </a>
-    <a href= "{{ route('see.showallform') }}" class="btn btn-primary btn-xs ">
-      Посмотреть все формы
+    <a href= "{{ route('see.showallform') }}" class="btn btn-primary btn-lg text-uppercase " id="choice-btn">
+      <i class="fa fa-list" aria-hidden="true"></i> Посмотреть все формы
   </a>
   </p>
   
   @foreach ($employees as $empl)
-  
+  <div class="col-md-4">
         <div class="block1">
           
           <a href="{{ route('form.update', $empl->id) }}" class="btn btn-primary btn-xs">
@@ -85,7 +86,7 @@
           </div>
         </div>
         <br>
-  
+  </div>
   @endforeach
   
 </body>

@@ -12,24 +12,24 @@
 <body>
 
 <p class="nameOfArticle">
-        <a href= "{{ route('index') }}" class="btn btn-primary btn-xs ">
-            Назад
-        </a>
-    </p>
-    @foreach ($data as $form)
+  <a href= "{{ route('index') }}" class="btn btn-primary btn-lg text-uppercase" id="choice-btn">
+    <i class="glyphicon glyphicon-menu-left" aria-hidden="true"></i> Назад
+  </a>
+</p>
+@foreach ($data as $form)
+<div class="col-md-4">
     <div class="block1">
+      <a href="{{ route('forms.show', $form['form']->id) }}" class="btn btn-primary btn-xs" id="use-field-btn">
+        <h1 class="glyphicon glyphicon-play-circle"></h1>
+      </a>
       <div class="block2">
-          <div class="block3">
-             
-          </div>
-          <h1>ID: {{ $form['form']->id }}</h1>
+          <div class="block3"></div>
+          <h1>Форма №: {{ $form['form']->id }}</h1>
           <form method="post" action="{{ route('form.registration') }}">
             <h2>{{ $form['form']->name }}</h2>
             @csrf             
-              <div class="block5">
-                  
-                  @foreach ($form['fields'] as $field)
-                  
+              <div class="block5">                  
+                  @foreach ($form['fields'] as $field)                  
                   <div class="form-group">
                       <div class="form-lastname">
                           <label for="{{ $field->name }}">{{ $field->name }}{{ $field->required ? '*' : '' }}:</label>
@@ -67,26 +67,20 @@
                       @endif
                   </div>
                   @endforeach
-
                   <hr>
-                  <p class="styletext2">
-                     
-                  </p>
-              </div>
-              <div class="block6">
-                  <p class="styletext3">
-                      
-                  </p>
-              </div>
+              </div>              
               <div class="block7">
                   <button class="btn btn-primary" style="width: 100%;">Отправить</button>
-              </div>
-              
-          </form>
-        
+              </div>   
+                        
+          </form>     
+            
       </div>
-  </div>
-  @endforeach
+    </div>
+    <br>
+</div>
+  <br>
+@endforeach
     
 </body>
 </html>
