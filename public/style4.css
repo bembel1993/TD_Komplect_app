@@ -175,3 +175,11 @@ input.text3 {
     font-size: 1.5rem;
     font-weight: bold;
   }
+
+button#remove-field-btn {
+    background-color: rgb(231, 62, 90);
+} 
+
+button#add-field-btn{
+    background-color: rgb(9, 117, 18);
+}

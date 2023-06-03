@@ -84,6 +84,9 @@
                 <button type="button" class="btn btn-primary btn-xs" id="add-field-btn">
                   <h1 class="glyphicon glyphicon-plus"></h1>
                 </button>
+                <button type="button" class="btn btn-primary btn-xs" id="remove-field-btn">
+                  <h1 class="glyphicon glyphicon-remove"></h1>
+                </button>
               
                 <button type="submit" class="btn btn-primary btn-xs">
                   <h1 class="glyphicon glyphicon-floppy-disk"></h1>
@@ -131,7 +134,7 @@
              ' <br> ' +
              '<div class="form-group">' +
               '<div class="form-lastname">' +
-                '<label for="field-atribut-' + fieldCount + '">Field atribut:</label>' +
+                '<label for="field-atribut-' + fieldCount + '">Атрибут поля:</label>' +
               '</div>' +
               '<div class="form-input-lastname">' +
                 '<select id="field-atribut-' + fieldCount + '" class="form-select form-select-lg mb-3" name="fields[' + fieldCount + '][atribut]" required>' +
@@ -143,7 +146,7 @@
                 '</select>' +
               '</div>' +
             '</div>' +
-            '<label for="field-required-' + fieldCount + '">Required:</label>' +
+            '<label for="field-required-' + fieldCount + '">Обязательное поле:</label>' +
             '<input type="checkbox" id="field-required-' + fieldCount + '" name="fields[' + fieldCount + '][required]">' +
             '<hr>' +
           '</div>';
@@ -151,6 +154,14 @@
           $('#fields').append(field);
           fieldCount++;
         });
+    </script>
+    <script>
+      $('#remove-field-btn').click(function() {
+        if (fieldCount > 1) {
+        $('#fields .field:last-child').remove();
+          fieldCount--;
+        }
+      });
     </script>
 </body>
 

@@ -40,8 +40,10 @@ class RegFormController extends Controller
         $formData->patronymic = $request->input('patronymic');
         $formData->company = $request->input('company');
         $formData->department = $request->input('department');
+        $formData->save();
+            return redirect()->route('index');
 
-        $validator = Validator::make($request->all(), [
+     /*   $validator = Validator::make($request->all(), [
             'last_name' => 'required',
             'first_name' => 'required',
             'patronymic' => 'required',
@@ -54,7 +56,7 @@ class RegFormController extends Controller
         } else {
             $formData->save();
             return redirect()->route('index');
-        }
+        }*/
         /*
         if (empty($request->input('last_name'))) {
             echo '<p style="color: red">Field Last name is empty</p>';
